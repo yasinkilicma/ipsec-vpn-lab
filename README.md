@@ -1,6 +1,6 @@
 # IPSec Site-to-Site VPN Lab — StrongSwan in Docker
 
-Ein vollständig containerisiertes IPSec-VPN-Labor mit zwei StrongSwan-Endpunkten auf Alpine Linux. Entwickelt für das NSE4-Praktikum und die Vertiefung von IPSec-Protokollen (IKEv1, Phase 1/Phase 2, DPD, xfrm).
+Ein IPSec-VPN-Lab mit zwei StrongSwan-Endpunkten in Docker auf Alpine Linux. Entwickelt für das NSE4-Praktikum und die Vertiefung von IPSec-Protokollen (IKEv1, Phase 1/Phase 2, DPD, xfrm).
 
 ## Architektur
 
