@@ -1,0 +1,41 @@
+networks:
+  internet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.255.0.0/24
+
+services:
+  # ============================================
+  # Site-A: Mannheim Merkez Ofis
+  # ============================================
+  site-a:
+    build: .
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    environment:
+      - LAN_IP=10.0.1.1/24
+    networks:
+      internet:
+        ipv4_address: 10.255.0.10
+    volumes:
+      - ./site-a/ipsec.conf:/etc/ipsec.conf:ro
+      - ./site-a/ipsec.secrets:/etc/ipsec.secrets:ro
+
+  # ============================================
+  # Site-B: Heidelberg Sube Ofis
+  # ============================================
+  site-b:
+    build: .
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    environment:
+      - LAN_IP=10.0.2.1/24
+    networks:
+      internet:
+        ipv4_address: 10.255.0.20
+    volumes:
+      - ./site-b/ipsec.conf:/etc/ipsec.conf:ro
+      - ./site-b/ipsec.secrets:/etc/ipsec.secrets:ro
